@@ -52,7 +52,7 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     public String toString(){
-        return zaehler + "\n" + "-" + "\n" + nenner;
+        return zaehler + "/" + nenner;
     }
 
     /**
