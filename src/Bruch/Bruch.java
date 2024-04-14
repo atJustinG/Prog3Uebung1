@@ -9,6 +9,7 @@ public class Bruch implements Comparable<Bruch>{
     private int nenner;
     private int zaehler;
     private int ganzeZahl;
+
     public Bruch(int zaehler, int nenner){
         this.nenner = nenner;
         this.zaehler = zaehler;

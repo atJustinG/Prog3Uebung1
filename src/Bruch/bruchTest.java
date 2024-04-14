@@ -22,7 +22,7 @@ public class bruchTest {
         Arrays.sort(bArray);
         System.out.println("sorted by value: " + Arrays.toString(bArray));
         Arrays.sort(bArray);
-
-
+        Arrays.sort(bArray, new BruchComparator());
+        System.out.println("sorted by difference: " + Arrays.toString(bArray));
     }
 }
