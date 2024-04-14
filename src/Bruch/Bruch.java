@@ -1,12 +1,10 @@
 package Bruch;
 
-import java.sql.SQLOutput;
-
 /**
  * Diese Klasse beschreibt einen mathematischen Bruch
  * @author Justin Glowa 573904
  */
-public abstract class Bruch implements Comparable<Bruch>{
+public class Bruch implements Comparable<Bruch>{
 
     private int nenner;
     private int zaehler;
@@ -14,6 +12,9 @@ public abstract class Bruch implements Comparable<Bruch>{
     public Bruch(int zaehler, int nenner){
         this.nenner = nenner;
         this.zaehler = zaehler;
+        if(nenner == 0){
+            throw new IllegalArgumentException("nenner darf nicht 0 sein");
+        }
     }
 
     public Bruch(int ganzeZahl){
@@ -26,8 +27,52 @@ public abstract class Bruch implements Comparable<Bruch>{
        return this;
     }
 
+    public double ausrechnen(){
+        double tempNenner = nenner;
+        return zaehler/tempNenner;
+    }
+
+    public void kuerzen(){
+        int ggt = ggt(this);
+        zaehler = zaehler / ggt;
+        nenner = nenner / ggt;
+    }
+
+    public Bruch kehrwert(){
+        int tempForSwitch;
+        tempForSwitch = this.nenner;
+        this.nenner = this.zaehler;
+        this.zaehler = tempForSwitch;
+        return this;
+    }
+
+    public Bruch dividieren(Bruch b){
+        b = b.kehrwert();
+        return multiplication(b);
+    }
+
     public String toString(){
         return zaehler + "\n" + "-" + "\n" + nenner;
+    }
+
+    /**
+     * berechnen des kleinsten gemeinsamen Teilers unter der Verwendung des euklidischen Algorithmus
+     * @param b
+     * @return int
+     */
+    public int ggt(Bruch b){
+        if(b.zaehler == 0){
+            return b.nenner;
+        }else {
+            while (b.nenner != 0) {
+                if (b.zaehler > b.nenner) {
+                    b.zaehler = b.zaehler - b.nenner;
+                }else {
+                    b.nenner = b.nenner - b.zaehler;
+                }
+            }
+            return b.zaehler;
+        }
     }
 
     public int getNenner(){
@@ -38,5 +83,14 @@ public abstract class Bruch implements Comparable<Bruch>{
     }
     public int getGanzeZahl() {
         return ganzeZahl;
+    }
+
+    @Override
+    public int compareTo(Bruch o) {
+        if(this.ausrechnen() < o.ausrechnen()){
+            return -1;
+        }else if(this.ausrechnen() > o.ausrechnen()){
+            return 1;
+        }else return 0;
     }
 }
