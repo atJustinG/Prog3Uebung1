@@ -1,5 +1,7 @@
 package Bruch;
 
+import java.util.Arrays;
+
 public class bruchTest {
     public static void main(String args[]){
         Bruch b = new Bruch(1,5);
@@ -16,6 +18,11 @@ public class bruchTest {
         bArray[7] = new Bruch(8, 12);
         bArray[8] = new Bruch(1,8);
         bArray[9] = new Bruch(2, 9);
+        System.out.println("unsorted: " + Arrays.toString(bArray));
+        Arrays.sort(bArray);
+        System.out.println("sorted by value: " + Arrays.toString(bArray));
+        Arrays.sort(bArray);
+
 
     }
 }
