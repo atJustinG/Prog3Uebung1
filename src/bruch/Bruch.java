@@ -117,7 +117,7 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     /**
-     * Get-Methode für das Attribut nenner
+     * Get-Methode für das Attribut nenner verwendet für die Klasse BruchComparator
      * @return int Wert des nenners
      */
     public int getNenner(){
@@ -125,7 +125,7 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     /**
-     * liefert den Zaehler zurueck
+     * liefert den Zaehler zurueck verwendet für die Klasse BruchComparator
      * @return int Wert des Zaehlers
      */
     public int getZaehler(){

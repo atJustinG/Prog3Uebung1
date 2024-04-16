@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 /**
  * BruchComparator implementiert Comparator interface um die Differenz zwischen zaehler und Nenner zu vergleichen
+ * wird bei Arrays.sort verwendet um den Array absteigend anhand der Differenzen zu sortieren
  */
 public class BruchComparator implements Comparator<Bruch> {
 
